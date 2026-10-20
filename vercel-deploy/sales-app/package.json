@@ -1,0 +1,14 @@
+{
+  "name": "sales-comparison",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:data": "node scripts/prepare-data.mjs && node scripts/prepare-operations.mjs",
+    "dev": "npm run prepare:data && vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "npm run prepare:data && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173"
+  },
+  "dependencies": { "xlsx": "0.18.5" },
+  "devDependencies": { "vite": "6.4.1" }
+}

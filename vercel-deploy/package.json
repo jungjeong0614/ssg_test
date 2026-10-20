@@ -1,0 +1,13 @@
+{
+  "name": "sales-comparison-deploy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": { "xlsx": "0.18.5" },
+  "devDependencies": { "vite": "6.4.1" },
+  "scripts": {
+    "dev": "npm --prefix sales-app run dev",
+    "build": "npm --prefix sales-app run build",
+    "preview": "npm --prefix sales-app run preview"
+  }
+}

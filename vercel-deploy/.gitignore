@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+node_modules/
+sales-app/node_modules/
+dist/
+sales-app/dist/
+.vercel/
+sales-app/public/data/
+sales-app/server/data/
