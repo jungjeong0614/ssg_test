@@ -1,0 +1,29 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Build output and installed packages
+node_modules/
+dist/
+.vercel/
+
+# Original exercise materials (all A-E source folders)
+/A_매출비교/
+/B_팝업오픈/
+/C_행사준비/
+/D_화면과연결/
+/E_짧은연습/
+
+# Personal data copies and local exports
+*.local.xlsx
+*.local.csv
+exports/
+
+# Results generated from original source materials
+/results/*
+!/results/.gitkeep
+
+# Other source material in the exercise folder
+/연습_간식룰렛/
