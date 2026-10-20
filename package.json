@@ -1,0 +1,10 @@
+{
+  "name": "ssg-exercise-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix sales-app run dev",
+    "build": "npm --prefix sales-app run build",
+    "preview": "npm --prefix sales-app run preview"
+  }
+}

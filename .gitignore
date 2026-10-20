@@ -27,3 +27,6 @@ exports/
 
 # Other source material in the exercise folder
 /연습_간식룰렛/
+
+# Generated input copies remain local
+/sales-app/public/data/
