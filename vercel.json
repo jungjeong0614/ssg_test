@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm --prefix sales-app ci --no-audit --no-fund",
+  "buildCommand": "npm run build",
+  "outputDirectory": "sales-app/dist",
+  "functions": {
+    "api/weather.mjs": {
+      "maxDuration": 10,
+      "includeFiles": "sales-app/fixtures/educational/weather-sample.json"
+    }
+  },
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+}

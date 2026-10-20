@@ -30,3 +30,7 @@ exports/
 
 # Generated input copies remain local
 /sales-app/public/data/
+/sales-app/server/data/
+
+# Sites uses its own source repository
+/sites/

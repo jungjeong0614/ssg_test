@@ -1,4 +1,5 @@
 import './style.css';
+import { initOperations } from './operations.js';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import { filterRows, summarize, importFiles, createReportWorkbook, REPORT_HEADERS } from './data.js';
 
@@ -99,6 +100,7 @@ async function boot() {
   try { const res=await fetch('/data/sales.json');if(!res.ok)throw new Error(`HTTP ${res.status}`);const data=await res.json();rows=data.rows||[];reportHeaders=data.headers||REPORT_HEADERS;diagnostics=data.errors||[];duplicates=data.duplicates||[];options();render(); }
   catch(err) {showNotice(`원본 통합 데이터를 불러오지 못했습니다. ${err.message}`,'error');render();}
 }
+initOperations(document.querySelector('main'));
 render();boot();
 
 

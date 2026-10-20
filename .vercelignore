@@ -1,0 +1,15 @@
+A_매출비교/
+B_팝업오픈/
+C_행사준비/
+D_화면과연결/
+E_짧은연습/
+연습_간식룰렛/
+sites/
+results/
+.env
+.env.local
+.env.*.local
+**/node_modules/
+**/dist/
+sales-app/public/data/
+sales-app/server/data/

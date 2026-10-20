@@ -1,0 +1,9 @@
+{
+  "classification": "교육용 가상 데이터",
+  "sourceNote": "제공된 교육용 자료에서 검증한 배포 전용 복사본. 실제 고객·매출 및 API 키 미포함.",
+  "files": {
+    "sales.json": "10bbb7cf1623b31d05532f412b54455d4f5dadd232644f1f961dfd4af4b5a168",
+    "operations.json": "12df06ac4e1ae0130eb150494c91febbfab148850f0f56f877d1e1e69c263c61",
+    "weather-sample.json": "9e2519e3cd4448b9ec6043e47a554fa94471ede38ea9388e922de05df55d54fa"
+  }
+}

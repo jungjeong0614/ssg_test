@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {selectTasks,countTasks,rainAlerts} from '../src/operations-data.js';
+const data=JSON.parse(await fs.readFile(new URL('../public/data/operations.json',import.meta.url),'utf8'));
+const sample=JSON.parse(await fs.readFile(new URL('../public/data/weather-sample.json',import.meta.url),'utf8'));
+assert.deepEqual(data.eventPeriod,{start:'2026-10-23',end:'2026-11-01'});
+const marketing=selectTasks(data.rows,{role:'마케팅 담당',asOf:'2026-10-20'});
+assert.equal(marketing.length,7);assert.deepEqual(Object.values(countTasks(marketing)),[2,1,2,1,1]);
+assert.deepEqual(Object.values(countTasks(marketing,'2026-10-22')),[4,1,1,0,1]);
+assert.equal(selectTasks(data.rows).length,42);
+assert.deepEqual(rainAlerts(sample,data.eventPeriod).map(r=>[r.date,r.pop,r.taskId,r.mode]),[['2026-10-23',0.8,'EV071','sample']]);
+const live={mode:'live',source:{name:'OpenWeather'},forecast:[{date:'2026-10-22',pop:1},{date:'2026-10-23',pop:0.599},{date:'2026-10-24',pop:0.6},{date:'2026-11-01',pop:0.9},{date:'2026-11-02',pop:1}]};
+assert.deepEqual(rainAlerts(live,data.eventPeriod).map(r=>[r.date,r.pop,r.mode]),[['2026-10-24',0.6,'live'],['2026-11-01',0.9,'live']]);
+assert.equal(rainAlerts({forecast:[]},data.eventPeriod).length,0);
+assert.equal(data.rows.find(r=>r.task_id==='EV071').상태,'진행 중');
+await fs.writeFile(new URL('../../results/board-rain-tests.json',import.meta.url),JSON.stringify({at:new Date().toISOString(),passed:true,marketingCount:7,marketingCategories:[2,1,2,1,1],changedDateCategories:[4,1,1,0,1],sampleAlert:{date:'2026-10-23',probability:0.8,taskId:'EV071'},boundaries:'0.6 included; <0.6 excluded; event start/end inclusive; outside event excluded; live/sample preserved'},null,2));
+console.log('PASS marketing 7, shared date categories, event-period rain threshold, sample 10/23 80% -> EV071, source distinction');
